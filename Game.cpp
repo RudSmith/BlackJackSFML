@@ -37,8 +37,6 @@ void Game::update()
 {
 	this->updateEvents();
 
-	this->pixelPos = sf::Mouse::getPosition(*window);
-	this->worldPos = window->mapPixelToCoords(pixelPos);
 
 	this->hit->update(worldPos);
 }
@@ -60,6 +58,12 @@ void Game::run()
 		this->update();
 		this->render();
 	}
+}
+
+void Game::updateMousPosition()
+{
+	this->pixelPos = sf::Mouse::getPosition(*window);
+	this->worldPos = window->mapPixelToCoords(pixelPos);
 }
 
 void Game::initDeck()
