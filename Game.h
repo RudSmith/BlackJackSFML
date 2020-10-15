@@ -20,6 +20,8 @@ public:
 	void render();
 	void run();
 
+	void updateMousPosition();
+
 	// Card methods
 	void initDeck();
 	void initButtons();
