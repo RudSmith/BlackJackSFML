@@ -20,6 +20,8 @@ public:
 	void render();
 	void run();
 
+	sf::Vector2f MousePos();
+
 	// Card methods
 	void initDeck();
 	void initButtons();
