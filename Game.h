@@ -55,5 +55,11 @@ private:
 	// Button to escape to main menu
 	Button* m_escape_to_menu;
 
+	// -------------------------- TEXTURE SECTION -------------------------- //
+	sf::Texture *m_backgroundTexture;
+	
+	// -------------------------- SPRITE SECTION -------------------------- //
+	sf::Sprite m_backgroundSprite;
+
 };
 

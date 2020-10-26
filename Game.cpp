@@ -26,6 +26,12 @@ void Game::initWindow()
 	this->window = new sf::RenderWindow(sf::VideoMode(1100, 650), "BlackJack", sf::Style::Titlebar | sf::Style::Close);
 	this->font = new sf::Font;
 	this->font->loadFromFile("Fonts/arial.ttf");
+
+	// Set backgound image
+	this->m_backgroundTexture = new sf::Texture;
+	this->m_backgroundTexture->loadFromFile("Images/Background.jpg");
+	this->m_backgroundSprite.setTexture(*this->m_backgroundTexture);
+	this->m_backgroundSprite.setScale(1.757, 1.78);
 }
 
 void Game::initDeck()
@@ -60,10 +66,10 @@ void Game::update()
 	this->m_escape_to_menu->update(worldPos);
 }
 
-//
 void Game::render()
 {
 	this->window->clear();
+	this->window->draw(this->m_backgroundSprite);
 
 	this->m_hit->render(this->window);
 	this->m_stand->render(this->window);
@@ -88,7 +94,3 @@ void Game::updateMousePosition()
 	this->pixelPos = sf::Mouse::getPosition(*window);
 	this->worldPos = window->mapPixelToCoords(pixelPos);
 }
-
-
-
-
