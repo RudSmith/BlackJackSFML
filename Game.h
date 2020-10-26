@@ -1,11 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <iostream>
-#include <ctime>
-#include <array>
 #include "Button.h"
-#include "Card.h"
 
 class Game
 {
