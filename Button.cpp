@@ -9,11 +9,11 @@ Button::Button(float x, float y, float width, float height, sf::Font* font, std:
 	this->m_font = font;
 	this->m_text.setFont(*this->m_font);
 	this->m_text.setString(text);
-	this->m_text.setFillColor(sf::Color::White);
-	this->m_text.setCharacterSize(12);
+	this->m_text.setFillColor(sf::Color::Black);
+	this->m_text.setCharacterSize(20);
 	this->m_text.setPosition(
-		this->m_shape.getPosition().x + (this->m_shape.getPosition().x / 2.f) - this->m_text.getGlobalBounds().width / 2.f,
-		this->m_shape.getPosition().y + (this->m_shape.getPosition().y / 2.f) - this->m_text.getGlobalBounds().height / 2.f
+		this->m_shape.getPosition().x + (this->m_shape.getGlobalBounds().width / 2.f) - this->m_text.getGlobalBounds().width / 2.f,
+		this->m_shape.getPosition().y + (this->m_shape.getGlobalBounds().height / 2.f) - this->m_text.getGlobalBounds().height / 2.f
 	);
 
 	this->m_idleColor = idleColor;

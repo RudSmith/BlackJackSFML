@@ -15,12 +15,17 @@ public:
 	~Game();
 
 	// Main methods
+
+	// Update all events
 	void updateEvents();
+	// Update all states
 	void update();
+	// Render all sprites
 	void render();
+	// Start game
 	void run();
 
-	void updateMousPosition();
+	void updateMousePosition();
 
 	// Card methods
 	void initDeck();
