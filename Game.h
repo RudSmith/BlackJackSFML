@@ -34,17 +34,17 @@ private:
 	void updateMousePosition();
 
 	// Window object 
-	sf::RenderWindow *window;
+	sf::RenderWindow *m_window;
 	// Event object
-	sf::Event event;
+	sf::Event m_event;
 
 	// Mouse position in pixels 
-	sf::Vector2i pixelPos;
+	sf::Vector2i m_pixelPos;
 	// Mouse position in float
-	sf::Vector2f worldPos;
+	sf::Vector2f m_worldPos;
 
 	// Uploadable font
-	sf::Font* font;
+	sf::Font* m_font;
 
 	// Button to take another card
 	Button* m_hit;
