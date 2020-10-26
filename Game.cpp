@@ -1,12 +1,12 @@
 #include "Game.h"
 
-// Constructors/Destructors
 Game::Game()
 {
 	// initialize a window
 	this->initWindow();
 	this->initButtons();
 	this->initDeck();
+	this->initPlayers();
 }
 
 Game::~Game()
@@ -19,6 +19,9 @@ Game::~Game()
 	delete this->m_stand;
 	delete this->m_double;
 	delete this->m_escape_to_menu;
+
+	delete this->m_croupier;
+	delete this->m_user;
 }
 
 void Game::initWindow()
@@ -45,6 +48,12 @@ void Game::initButtons()
 	this->m_stand = new Button(800, 550, 70, 50, this->m_font, "Stand", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
 	this->m_double = new Button(900, 550, 70, 50, this->m_font, "Double", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
 	this->m_escape_to_menu = new Button(0, 0, 70, 50, this->m_font, "Exit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
+}
+
+void Game::initPlayers()
+{
+	this->m_croupier = new Player("Croupier");
+	this->m_user = new Player();
 }
 
 void Game::updateEvents()

@@ -2,13 +2,13 @@
 
 #include <SFML/Graphics.hpp>
 #include "Button.h"
+#include "Player.h"
 
 class Game
 {
 public:
-	// Default constructor
+	// ----------- Constructors and desctructors ----------- // 
 	Game();
-	// Default destructor
 	~Game();
 	
 	// Start game
@@ -16,22 +16,19 @@ public:
 	
 
 private:
-	// Initialize window properties
+	// ----------- Initializers ----------- //
 	void initWindow();
-	// Initialize deck properties
 	void initDeck();
-	// Initialize buttons properties
 	void initButtons();
+	void initPlayers();
 
-	// Update all sfml events
+	// ----------- Updaters ----------- //
 	void updateEvents();
-	// Update all objects states
 	void update();
+	void updateMousePosition();
+
 	// Render all sprites
 	void render();
-
-	// Get current mouse position
-	void updateMousePosition();
 
 	// Window object 
 	sf::RenderWindow *m_window;
@@ -54,6 +51,10 @@ private:
 	Button* m_double;
 	// Button to escape to main menu
 	Button* m_escape_to_menu;
+
+	// -------------------------- PLAYERS SECTION -------------------------- //
+	Player *m_croupier;
+	Player *m_user;
 
 	// -------------------------- TEXTURE SECTION -------------------------- //
 	sf::Texture *m_backgroundTexture;

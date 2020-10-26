@@ -1,5 +1,6 @@
 #pragma once
-#include "Game.h"
+#include <string>
+#include <SFML\Graphics.hpp>
 
 class Card
 {
