@@ -7,7 +7,6 @@ public:
 	void loadTexture(const std::string fileName);
 	void setSpriteFromTexture();
 
-
 private:
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
