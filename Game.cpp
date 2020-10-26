@@ -21,7 +21,12 @@ Game::~Game()
 {
 	// free the allocated memory for the window
 	delete this->window;
-	delete this->hit;
+
+	// free the allocated memory for the buttons
+	delete this->m_hit;
+	delete this->m_stand;
+	delete this->m_double;
+	delete this->m_escape_to_menu;
 }
 
 // Methods
@@ -39,14 +44,21 @@ void Game::update()
 {
 	this->updateEvents();
 	this->updateMousePosition();
-	this->hit->update(worldPos);
+
+	this->m_hit->update(worldPos);
+	this->m_stand->update(worldPos);
+	this->m_double->update(worldPos);
+	this->m_escape_to_menu->update(worldPos);
 }
 
 void Game::render()
 {
 	this->window->clear();
 
-	this->hit->render(this->window);
+	this->m_hit->render(this->window);
+	this->m_stand->render(this->window);
+	this->m_double->render(this->window);
+	this->m_escape_to_menu->render(this->window);
 
 	this->window->display();
 }
@@ -73,6 +85,9 @@ void Game::initDeck()
 
 void Game::initButtons()
 {
-	this->hit = new Button(100, 100, 150, 50, this->font, "Hit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
+	this->m_hit    = new Button(700, 550, 70, 50, this->font, "Hit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
+	this->m_stand  = new Button(800, 550, 70, 50, this->font, "Stand", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
+	this->m_double = new Button(900, 550, 70, 50, this->font, "Double", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
+	this->m_escape_to_menu = new Button(0, 0, 70, 50, this->font, "Exit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
 }
 

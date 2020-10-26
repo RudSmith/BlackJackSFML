@@ -44,7 +44,10 @@ private:
 	sf::Font* font;
 
 	// Buttons
-	Button* hit;
+	Button* m_hit;
+	Button* m_stand;
+	Button* m_double;
+	Button* m_escape_to_menu;
 	//Button stand;
 
 	// Deck
