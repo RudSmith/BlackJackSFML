@@ -10,48 +10,54 @@
 class Game
 {
 public:
-	// Constructors/Destructors
+	// Default constructor
 	Game();
+	// Default destructor
 	~Game();
+	
+	// Start game
+	void run();
+	
 
-	// Main methods
+private:
+	// Initialize window properties
+	void initWindow();
+	// Initialize deck properties
+	void initDeck();
+	// Initialize buttons properties
+	void initButtons();
 
-	// Update all events
+	// Update all sfml events
 	void updateEvents();
-	// Update all states
+	// Update all objects states
 	void update();
 	// Render all sprites
 	void render();
-	// Start game
-	void run();
 
+	// Get current mouse position
 	void updateMousePosition();
 
-	// Card methods
-	void initDeck();
-	void initButtons();
-
-
-private:
-	// Initializers
-	void initWindow();
-
-	// Variables
+	// Window object 
 	sf::RenderWindow *window;
+	// Event object
 	sf::Event event;
+
+	// Mouse position in pixels 
 	sf::Vector2i pixelPos;
+	// Mouse position in float
 	sf::Vector2f worldPos;
+
+	// Uploadable font
 	sf::Font* font;
 
-	// Buttons
+	// Button to take another card
 	Button* m_hit;
+	// Button to start croupier`s turn
 	Button* m_stand;
+	// Button to double your bet and take another card
 	Button* m_double;
+	// Button to escape to main menu
 	Button* m_escape_to_menu;
-	//Button stand;
-
-	// Deck
-	//std::array <Card, 52> deck;
 
 };
 

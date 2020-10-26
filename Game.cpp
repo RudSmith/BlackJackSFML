@@ -1,14 +1,5 @@
 #include "Game.h"
 
-// Initializers
-void Game::initWindow()
-{
-	// create a new sfml window 
-	this->window = new sf::RenderWindow(sf::VideoMode(1100, 650), "BlackJack", sf::Style::Titlebar | sf::Style::Close);
-	this->font = new sf::Font;
-	this->font->loadFromFile("Fonts/arial.ttf");
-}
-
 // Constructors/Destructors
 Game::Game()
 {
@@ -29,10 +20,28 @@ Game::~Game()
 	delete this->m_escape_to_menu;
 }
 
-// Methods
+void Game::initWindow()
+{
+	// create a new sfml window 
+	this->window = new sf::RenderWindow(sf::VideoMode(1100, 650), "BlackJack", sf::Style::Titlebar | sf::Style::Close);
+	this->font = new sf::Font;
+	this->font->loadFromFile("Fonts/arial.ttf");
+}
+
+void Game::initDeck()
+{
+}
+
+void Game::initButtons()
+{
+	this->m_hit = new Button(700, 550, 70, 50, this->font, "Hit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
+	this->m_stand = new Button(800, 550, 70, 50, this->font, "Stand", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
+	this->m_double = new Button(900, 550, 70, 50, this->font, "Double", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
+	this->m_escape_to_menu = new Button(0, 0, 70, 50, this->font, "Exit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
+}
+
 void Game::updateEvents()
 {
-	// this loop is updating events
 	while (this->window->pollEvent(this->event))
 	{
 		if (this->event.type == sf::Event::Closed)
@@ -51,6 +60,7 @@ void Game::update()
 	this->m_escape_to_menu->update(worldPos);
 }
 
+//
 void Game::render()
 {
 	this->window->clear();
@@ -79,15 +89,6 @@ void Game::updateMousePosition()
 	this->worldPos = window->mapPixelToCoords(pixelPos);
 }
 
-void Game::initDeck()
-{
-}
 
-void Game::initButtons()
-{
-	this->m_hit    = new Button(700, 550, 70, 50, this->font, "Hit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
-	this->m_stand  = new Button(800, 550, 70, 50, this->font, "Stand", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
-	this->m_double = new Button(900, 550, 70, 50, this->font, "Double", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
-	this->m_escape_to_menu = new Button(0, 0, 70, 50, this->font, "Exit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
-}
+
 
