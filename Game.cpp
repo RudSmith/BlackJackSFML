@@ -13,6 +13,10 @@ Game::~Game()
 	// delete window
 	delete this->m_window;
 
+	// delete stuff
+	delete this->m_backgroundTexture;
+	delete this->m_font;
+
 	// delete buttons
 	delete this->m_hit;
 	delete this->m_stand;
