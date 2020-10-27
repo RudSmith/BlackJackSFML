@@ -4,12 +4,21 @@
 
 class Card
 {
+	using value_t = unsigned short;
+
 public:
-	void loadTexture(const std::string fileName);
+	Card(value_t value = 0, const std::string &textureFileName = "");
+
+	sf::Sprite sprite();
+	sf::Texture texture();
+	value_t value();
+
+	void loadTexture(const std::string &fileName);
 	void setSpriteFromTexture();
+	void setValue(const value_t &value);
 
 private:
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
-	unsigned short m_value;
+	value_t m_value;
 };
