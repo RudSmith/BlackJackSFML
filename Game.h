@@ -29,6 +29,7 @@ private:
 	// Render all sprites
 	void render();
 
+	// -------------------------- MAIN OBJECT SECTION -------------------------- //
 	// Window object 
 	sf::RenderWindow *m_window;
 	// Event object
@@ -52,13 +53,17 @@ private:
 	Button* m_escape_to_menu;
 
 	// -------------------------- PLAYERS SECTION -------------------------- //
+	// Actual player
 	Player *m_croupier;
+	// Bot croupier
 	Player *m_user;
 
 	// -------------------------- TEXTURE SECTION -------------------------- //
+	// Background image txtr
 	sf::Texture *m_backgroundTexture;
 	
 	// -------------------------- SPRITE SECTION -------------------------- //
+	// Background image sprite
 	sf::Sprite m_backgroundSprite;
 
 };
