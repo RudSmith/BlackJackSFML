@@ -18,7 +18,6 @@ public:
 private:
 	// ----------- Initializers ----------- //
 	void initWindow();
-	void initDeck();
 	void initButtons();
 	void initPlayers();
 
@@ -37,7 +36,7 @@ private:
 
 	// Mouse position in pixels 
 	sf::Vector2i m_pixelPos;
-	// Mouse position in float
+	// Mouse position in coords
 	sf::Vector2f m_worldPos;
 
 	// Uploadable font
