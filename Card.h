@@ -4,9 +4,9 @@
 
 class Card
 {
+public:
 	using value_t = unsigned short;
 
-public:
 	Card(value_t value = 0, const std::string &textureFileName = "");
 
 	sf::Sprite sprite();

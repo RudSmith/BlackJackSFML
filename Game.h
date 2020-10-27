@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Button.h"
 #include "Player.h"
+#include "Deck.h"
 
 class Game
 {
@@ -51,6 +52,8 @@ private:
 	Button* m_double;
 	// Button to escape to main menu
 	Button* m_escape_to_menu;
+
+	Deck deck;
 
 	// -------------------------- PLAYERS SECTION -------------------------- //
 	// Actual player
