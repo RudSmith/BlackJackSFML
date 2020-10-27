@@ -1,10 +1,6 @@
 #include "Deck.h"
 #include <fstream>
 
-////////////////////////////////////////////////////////
-#include <iostream>
-///////////////////////////////////////////////////////
-
 Deck::Deck()
 {
 	this->init();
@@ -22,9 +18,6 @@ void Deck::init()
 	std::fstream card_textures_file;
 	card_textures_file.open(file_path, std::ios::in);
 
-	if (card_textures_file.is_open())
-		std::cout << "Good\n";
-
 	size_t card_index{};
 	const size_t max_dignity{ 13 };
 	const size_t max_suit{ 4 };
@@ -36,7 +29,6 @@ void Deck::init()
 		{
 			std::string current_texture;
 			std::getline(card_textures_file, current_texture);
-			std::cout << current_texture << std::endl;
 
 			this->m_deck.at(card_index) = new Card{ Card::value_t(dignity), current_texture };
 			++card_index;
