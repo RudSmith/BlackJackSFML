@@ -6,6 +6,8 @@ Card::Card(value_t value, const std::string& textureFileName)
 {
 	this->m_texture.loadFromFile(textureFileName);
 	this->m_sprite.setTexture(this->m_texture);
+
+	this->m_sprite.setScale(0.25f, 0.2f);
 }
 
 sf::Sprite Card::sprite()
