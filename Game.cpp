@@ -1,5 +1,4 @@
 #include "Game.h"
-#include <iostream>
 
 Game::Game()
 {
@@ -112,12 +111,16 @@ void Game::render()
 {
 	this->m_window->clear();
 	this->m_window->draw(this->m_backgroundSprite);
+	this->renderButtons();
 
+	this->m_window->display();
+}
+
+void Game::renderButtons()
+{
 	this->m_hit->render(this->m_window);
 	this->m_stand->render(this->m_window);
 	this->m_double->render(this->m_window);
 	this->m_escape_to_menu->render(this->m_window);
-
-	this->m_window->display();
 }
 

@@ -28,8 +28,9 @@ private:
 	void updateMousePosition();
 	void updateButtons();
 
-	// Render all sprites
+	// ----------- Renderers ----------- //
 	void render();
+	void renderButtons();
 
 	// -------------------------- MAIN OBJECT SECTION -------------------------- //
 	// Window object 
@@ -45,6 +46,7 @@ private:
 	// Uploadable font
 	sf::Font* m_font;
 
+	// -------------------------- BUTTONS SECTION -------------------------- //
 	// Button to take another card
 	Button* m_hit;
 	// Button to start croupier`s turn
@@ -54,12 +56,12 @@ private:
 	// Button to escape to main menu
 	Button* m_escape_to_menu;
 
-	Deck deck;
+	Deck m_deck;
 
 	// -------------------------- PLAYERS SECTION -------------------------- //
-	// Actual player
+	// Croupier
 	Player *m_croupier;
-	// Bot croupier
+	// User
 	Player *m_user;
 
 	// -------------------------- TEXTURE SECTION -------------------------- //
