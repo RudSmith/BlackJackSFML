@@ -116,9 +116,6 @@ void Game::render()
 	this->m_window->draw(this->m_backgroundSprite);
 	this->renderButtons();
 
-	this->renderCards(this->m_croupier->Hand());
-	this->renderCards(this->m_user->Hand());
-
 	this->m_window->display();
 }
 
@@ -128,13 +125,5 @@ void Game::renderButtons()
 	this->m_stand->render(this->m_window);
 	this->m_double->render(this->m_window);
 	this->m_escape_to_menu->render(this->m_window);
-}
-
-void Game::renderCards(const std::vector<Card>& hand)
-{
-	for (auto card_iter : hand)
-	{
-		this->m_window->draw(card_iter.sprite());
-	}
 }
 
