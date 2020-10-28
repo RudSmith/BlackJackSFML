@@ -26,6 +26,7 @@ private:
 	void updateEvents();
 	void update();
 	void updateMousePosition();
+	void updateButtons();
 
 	// Render all sprites
 	void render();

@@ -69,6 +69,6 @@ const bool Button::isPressed() const
 {
 	if (this->m_state == ButtonState::BTN_ACTIVE)
 		return true;
-	else
-		return false;
+
+	return false;
 }

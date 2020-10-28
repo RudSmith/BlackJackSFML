@@ -1,4 +1,5 @@
 #include "Game.h"
+#include <iostream>
 
 Game::Game()
 {
@@ -78,20 +79,16 @@ void Game::updateEvents()
 	{
 		if (this->m_event.type == sf::Event::Closed)
 			this->m_window->close();
+		else if (this->m_event.type == sf::Event::MouseButtonPressed && this->m_event.mouseButton.button == sf::Mouse::Left);
 	}
 }
 
 // Update states of user objects
 void Game::update()
 {
-	this->updateEvents();
 	this->updateMousePosition();
-	
-	// Upd buttons state
-	this->m_hit->update(m_worldPos);
-	this->m_stand->update(m_worldPos);
-	this->m_double->update(m_worldPos);
-	this->m_escape_to_menu->update(m_worldPos);
+	this->updateButtons();
+	this->updateEvents();
 }
 
 // Calculate current mouse position in coords
@@ -99,6 +96,15 @@ void Game::updateMousePosition()
 {
 	this->m_pixelPos = sf::Mouse::getPosition(*m_window);
 	this->m_worldPos = m_window->mapPixelToCoords(m_pixelPos);
+}
+
+void Game::updateButtons()
+{
+	// Upd buttons state
+	this->m_hit->update(m_worldPos);
+	this->m_stand->update(m_worldPos);
+	this->m_double->update(m_worldPos);
+	this->m_escape_to_menu->update(m_worldPos);
 }
 
 // Show background, buttons and cards
