@@ -40,3 +40,12 @@ void Card::setValue(const value_t& value)
 {
 	this->m_value = value;
 }
+
+Card& Card::operator=(const Card& other)
+{
+	this->m_value = other.m_value;
+	this->m_texture = other.m_texture;
+	this->m_sprite.setTexture(this->m_texture);
+
+	return *this;
+}

@@ -17,6 +17,8 @@ public:
 	void setSpriteFromTexture();
 	void setValue(const value_t &value);
 
+	Card& operator=(const Card& other);
+
 private:
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
