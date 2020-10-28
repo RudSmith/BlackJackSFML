@@ -72,12 +72,6 @@ void Game::initPlayers()
 
 	this->m_croupier = new Player(croupier_init_card_pos, "Croupier");
 	this->m_user = new Player(player_init_card_pos);
-
-	this->m_croupier->addCard(this->m_deck.top_card());
-	this->m_croupier->addCard(this->m_deck.top_card());
-
-	this->m_user->addCard(this->m_deck.top_card());
-	this->m_user->addCard(this->m_deck.top_card());
 }
 
 // Update SFML standart events

@@ -44,7 +44,7 @@ void Player::makeBet(const money_t& bet)
 	this->m_bet += bet;
 }
 
-void Player::addCard(const Card& card)
+void Player::addCard(const Card card)
 {
 	this->m_hand.push_back(card);
 }

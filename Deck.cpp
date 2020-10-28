@@ -6,7 +6,6 @@ Deck::Deck()
 {
 	this->init();
 	this->m_top_card_index = 0;
-	this->shuffle();
 }
 
 Deck::~Deck()
@@ -38,20 +37,6 @@ void Deck::init()
 		}
 	
 	card_textures_file.close();
-}
-
-void Deck::shuffle()
-{
-	srand(time(NULL));
-
-	for (size_t card_ind{}; card_ind < m_deck.size(); ++card_ind)
-	{
-		int card_swap_index{ rand() % 52 };
-
-		Card* temp = this->m_deck.at(card_ind);
-		this->m_deck.at(card_ind) = this->m_deck.at(card_swap_index);
-		this->m_deck.at(card_swap_index) = temp;
-	}
 }
 
 const Card& Deck::top_card()

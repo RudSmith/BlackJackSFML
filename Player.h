@@ -26,7 +26,7 @@ public:
 
 	// ----------- Setters ----------- //
 	void makeBet(const money_t &bet);
-	void addCard(const Card &card);
+	void addCard(const Card card);
 	void setMove(const bool &isMoving);
 	
 private:
