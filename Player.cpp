@@ -1,9 +1,10 @@
 #include "Player.h"
 
-Player::Player(const name_t& name)
+Player::Player(const sf::Vector2f card_init_pos, const name_t& name)
 	: m_points{},
 	  m_bet{},
 	  m_name{ name },
+	  m_card_init_position{ card_init_pos },
 	  m_isWinner{ false },
 	  m_isMoving{ false }
 { }
@@ -18,7 +19,7 @@ const Player::money_t& Player::Bet()
 	return this->m_bet;
 }
 
-const Player::deck_t& Player::Deck()
+const Player::hand_t& Player::Hand()
 {
 	return this->m_hand;
 }

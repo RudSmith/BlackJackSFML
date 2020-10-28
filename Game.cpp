@@ -67,8 +67,17 @@ void Game::initButtons()
 // Creating two players
 void Game::initPlayers()
 {
-	this->m_croupier = new Player("Croupier");
-	this->m_user = new Player();
+	const sf::Vector2f croupier_init_card_pos{ 100.f, 0.f };
+	const sf::Vector2f player_init_card_pos{ 0.f, 300.f };
+
+	this->m_croupier = new Player(croupier_init_card_pos, "Croupier");
+	this->m_user = new Player(player_init_card_pos);
+
+	this->m_croupier->addCard(this->m_deck.top_card());
+	this->m_croupier->addCard(this->m_deck.top_card());
+
+	this->m_user->addCard(this->m_deck.top_card());
+	this->m_user->addCard(this->m_deck.top_card());
 }
 
 // Update SFML standart events
@@ -113,6 +122,9 @@ void Game::render()
 	this->m_window->draw(this->m_backgroundSprite);
 	this->renderButtons();
 
+	this->renderCards(this->m_croupier->Hand());
+	this->renderCards(this->m_user->Hand());
+
 	this->m_window->display();
 }
 
@@ -122,5 +134,13 @@ void Game::renderButtons()
 	this->m_stand->render(this->m_window);
 	this->m_double->render(this->m_window);
 	this->m_escape_to_menu->render(this->m_window);
+}
+
+void Game::renderCards(const std::vector<Card>& hand)
+{
+	for (auto card_iter : hand)
+	{
+		this->m_window->draw(card_iter.sprite());
+	}
 }
 
