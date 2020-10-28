@@ -15,7 +15,6 @@ class Player
 public:
 	// ----------- Constructors and destructors ----------- //
 	Player(const name_t &name = "User");
-	~Player();
 
 	// ----------- Getters ----------- //
 	const points_t &Points();
