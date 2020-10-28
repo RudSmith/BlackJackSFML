@@ -20,7 +20,7 @@ const Player::money_t& Player::Bet()
 
 const Player::deck_t& Player::Deck()
 {
-	return this->m_deck;
+	return this->m_hand;
 }
 
 const Player::name_t& Player::Name()
@@ -43,9 +43,9 @@ void Player::makeBet(const money_t& bet)
 	this->m_bet += bet;
 }
 
-void Player::addCard(Card& card)
+void Player::addCard(const Card& card)
 {
-	this->m_deck.push_back(&card);
+	this->m_hand.push_back(card);
 }
 
 void Player::setMove(const bool& isMoving)
