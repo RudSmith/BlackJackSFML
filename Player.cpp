@@ -39,6 +39,11 @@ const bool& Player::isMoving()
 	return this->m_isMoving;
 }
 
+const sf::Vector2f Player::card_init_pos()
+{
+	return this->m_card_init_position;
+}
+
 void Player::makeBet(const money_t& bet)
 {
 	this->m_bet += bet;

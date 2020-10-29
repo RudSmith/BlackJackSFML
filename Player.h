@@ -23,6 +23,7 @@ public:
 	const name_t &Name();
 	const bool &isWinner();
 	const bool &isMoving();
+	const sf::Vector2f card_init_pos();
 
 	// ----------- Setters ----------- //
 	void makeBet(const money_t &bet);
