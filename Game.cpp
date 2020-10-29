@@ -87,7 +87,28 @@ void Game::updateEvents()
 	{
 		if (this->m_event.type == sf::Event::Closed)
 			this->m_window->close();
-		else if (this->m_event.type == sf::Event::MouseButtonPressed && this->m_event.mouseButton.button == sf::Mouse::Left);
+		else if (this->m_event.type == sf::Event::MouseButtonPressed && this->m_event.mouseButton.button == sf::Mouse::Left)
+		{
+			if (this->m_hit->isPressed())
+			{
+				this->m_user->addCard(this->m_deck.top_card());
+				// !!!!!!!!!!!!! Add points to player
+			}
+			else if (this->m_stand->isPressed())
+			{
+				this->m_user->setMove(false);
+			}
+			else if (this->m_double->isPressed())
+			{
+				this->m_user->addCard(this->m_deck.top_card());
+				this->m_user->makeBet(this->m_user->Bet() * 2);
+				// !!!!!!!!!!!!! Add points to player
+			}
+			else if (this->m_escape_to_menu->isPressed())
+			{
+				// DO STHNG
+			}
+		}
 	}
 }
 
