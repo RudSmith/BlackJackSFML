@@ -58,7 +58,7 @@ void Deck::shuffle_card_indexes()
 	}
 }
 
-const size_t& Deck::top_card()
+const size_t& Deck::pop_top_card()
 { 
 	++this->m_top_card_index;
 	return this->m_card_indexes.at(m_top_card_index - 1);

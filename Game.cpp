@@ -73,11 +73,11 @@ void Game::initPlayers()
 	this->m_croupier = new Player(croupier_init_card_pos, "Croupier");
 	this->m_user = new Player(player_init_card_pos);
 
-	this->m_croupier->addCard(this->m_deck.top_card());
-	this->m_croupier->addCard(this->m_deck.top_card());
+	this->m_croupier->addCard(this->m_deck.pop_top_card());
+	this->m_croupier->addCard(this->m_deck.pop_top_card());
 
-	this->m_user->addCard(this->m_deck.top_card());
-	this->m_user->addCard(this->m_deck.top_card());
+	this->m_user->addCard(this->m_deck.pop_top_card());
+	this->m_user->addCard(this->m_deck.pop_top_card());
 }
 
 // Update SFML standart events
@@ -91,7 +91,7 @@ void Game::updateEvents()
 		{
 			if (this->m_hit->isPressed())
 			{
-				this->m_user->addCard(this->m_deck.top_card());
+				this->m_user->addCard(this->m_deck.pop_top_card());
 				// !!!!!!!!!!!!! Add points to player
 			}
 			else if (this->m_stand->isPressed())
@@ -100,7 +100,7 @@ void Game::updateEvents()
 			}
 			else if (this->m_double->isPressed())
 			{
-				this->m_user->addCard(this->m_deck.top_card());
+				this->m_user->addCard(this->m_deck.pop_top_card());
 				this->m_user->makeBet(this->m_user->Bet() * 2);
 				// !!!!!!!!!!!!! Add points to player
 			}

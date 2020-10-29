@@ -12,7 +12,7 @@ public:
 	void init();
 	void shuffle_card_indexes();
 
-	const size_t &top_card();
+	const size_t &pop_top_card();
 
 	const Card& at(const size_t& index);
 
