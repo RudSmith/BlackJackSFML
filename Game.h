@@ -31,7 +31,7 @@ private:
 	// ----------- Renderers ----------- //
 	void render();
 	void renderButtons();
-	void renderCards(const std::vector<Card> &hand);
+	void renderCards(const std::vector<size_t> &hand);
 
 	// -------------------------- MAIN OBJECT SECTION -------------------------- //
 	// Window object 

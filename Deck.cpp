@@ -6,6 +6,7 @@ Deck::Deck()
 {
 	this->init();
 	this->m_top_card_index = 0;
+	this->shuffle_card_indexes();
 }
 
 Deck::~Deck()
@@ -50,15 +51,20 @@ void Deck::shuffle_card_indexes()
 
 	for (size_t iter{}; iter < m_card_indexes.size(); ++iter)
 	{
-		size_t swap_index{ rand() % 52 };
+		int swap_index{ rand() % 52 };
 		size_t temp{ m_card_indexes.at(iter) };
 		m_card_indexes.at(iter) = m_card_indexes.at(swap_index);
 		m_card_indexes.at(swap_index) = temp;
 	}
 }
 
-const Card& Deck::top_card()
+const size_t& Deck::top_card()
 { 
 	++this->m_top_card_index;
-	return *this->m_deck.at(this->m_card_indexes.at(m_top_card_index - 1));
+	return this->m_card_indexes.at(m_top_card_index - 1);
+}
+
+const Card& Deck::at(const size_t& index)
+{
+	return *this->m_deck.at(index);
 }

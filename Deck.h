@@ -12,7 +12,9 @@ public:
 	void init();
 	void shuffle_card_indexes();
 
-	const Card &top_card();
+	const size_t &top_card();
+
+	const Card& at(const size_t& index);
 
 private:
 	std::array<Card*, 52> m_deck;
