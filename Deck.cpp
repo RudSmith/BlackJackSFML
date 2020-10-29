@@ -39,8 +39,26 @@ void Deck::init()
 	card_textures_file.close();
 }
 
+void Deck::shuffle_card_indexes()
+{
+	for (size_t iter{}; iter < m_card_indexes.size(); ++iter)
+	{
+		m_card_indexes.at(iter) = iter;
+	}
+
+	srand(time(NULL));
+
+	for (size_t iter{}; iter < m_card_indexes.size(); ++iter)
+	{
+		size_t swap_index{ rand() % 52 };
+		size_t temp{ m_card_indexes.at(iter) };
+		m_card_indexes.at(iter) = m_card_indexes.at(swap_index);
+		m_card_indexes.at(swap_index) = temp;
+	}
+}
+
 const Card& Deck::top_card()
 { 
 	++this->m_top_card_index;
-	return *this->m_deck.at(this->m_top_card_index - 1);
+	return *this->m_deck.at(this->m_card_indexes.at(m_top_card_index - 1));
 }
