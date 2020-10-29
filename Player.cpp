@@ -44,9 +44,9 @@ void Player::makeBet(const money_t& bet)
 	this->m_bet += bet;
 }
 
-void Player::addCard(const Card card)
+void Player::addCard(const size_t& card_index_in_deck)
 {
-	this->m_hand.push_back(card);
+	this->m_hand.push_back(card_index_in_deck);
 }
 
 void Player::setMove(const bool& isMoving)

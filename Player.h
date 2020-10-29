@@ -9,7 +9,7 @@ class Player
 	// ----------- Aliases ----------- //
 	using points_t = unsigned short;
 	using money_t = unsigned int;
-	using hand_t = std::vector<Card>;
+	using hand_t = std::vector<size_t>;
 	using name_t = std::string;
 
 public:
@@ -26,7 +26,7 @@ public:
 
 	// ----------- Setters ----------- //
 	void makeBet(const money_t &bet);
-	void addCard(const Card card);
+	void addCard(const size_t &card_index_in_deck);
 	void setMove(const bool &isMoving);
 	
 private:
