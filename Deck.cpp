@@ -64,6 +64,11 @@ const size_t& Deck::pop_top_card()
 	return this->m_card_indexes.at(m_top_card_index - 1);
 }
 
+const size_t& Deck::look_at_top_card()
+{
+	return this->m_card_indexes.at(m_top_card_index);
+}
+
 const Card& Deck::at(const size_t& index)
 {
 	return *this->m_deck.at(index);
