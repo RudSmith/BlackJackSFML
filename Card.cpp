@@ -41,3 +41,8 @@ void Card::setValue(const value_t& value)
 	this->m_value = value;
 }
 
+void Card::setPosition(const sf::Vector2f& card_pos)
+{
+	this->m_sprite.setPosition(card_pos);
+}
+

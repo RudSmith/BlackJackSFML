@@ -15,7 +15,7 @@ public:
 	const size_t &pop_top_card();
 	const size_t &look_at_top_card();
 
-	const Card& at(const size_t& index);
+	Card& at(const size_t& index);
 
 private:
 	std::array<Card*, 52> m_deck;

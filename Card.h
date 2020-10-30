@@ -16,6 +16,7 @@ public:
 	void loadTexture(const std::string &fileName);
 	void setSpriteFromTexture();
 	void setValue(const value_t &value);
+	void setPosition(const sf::Vector2f& card_pos);
 
 private:
 	sf::Texture m_texture;
