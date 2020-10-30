@@ -9,9 +9,9 @@ public:
 
 	Card(value_t value, const std::string &textureFileName);
 
-	sf::Sprite sprite() const;
-	sf::Texture texture() const;
-	value_t value() const;
+	const sf::Sprite &sprite() const;
+	const sf::Texture &texture() const;
+	const value_t &value() const;
 
 	void loadTexture(const std::string &fileName);
 	void setSpriteFromTexture();
