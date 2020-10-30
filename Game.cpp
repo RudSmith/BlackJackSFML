@@ -91,6 +91,7 @@ void Game::updateEvents()
 		{
 			if (this->m_hit->isPressed())
 			{
+				this->m_deck.at(this->m_deck.look_at_top_card()).setPosition(sf::Vector2f(228, 228));
 				this->m_user->addCard(this->m_deck.pop_top_card());
 				// !!!!!!!!!!!!! Add points to player
 			}
