@@ -73,6 +73,8 @@ void Game::initPlayers()
 	this->m_croupier = new Player(croupier_init_card_pos, "Croupier");
 	this->m_user = new Player(player_init_card_pos);
 
+	this->m_user->setMove(true);
+
 	croupierGetsCard();
 	croupierGetsCard();
 
@@ -138,7 +140,10 @@ void Game::render()
 {
 	this->m_window->clear();
 	this->m_window->draw(this->m_backgroundSprite);
-	this->renderButtons();
+
+	if(this->m_user->isMoving())
+		this->renderButtons();
+
 	this->renderCards(this->m_croupier->Hand());
 	this->renderCards(this->m_user->Hand());
 
@@ -173,6 +178,8 @@ void Game::hitPressHandle()
 
 void Game::standPressHandle()
 {
+	this->m_user->setMove(false);
+	this->m_croupier->setMove(true);
 }
 
 void Game::doublePressHandle()
