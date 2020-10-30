@@ -50,6 +50,8 @@ private:
 	// Mouse position in coords
 	sf::Vector2f m_worldPos;
 
+	const sf::Vector2f m_card_print_offset{ 35.f, 0.f };
+
 	// Uploadable font
 	sf::Font* m_font;
 

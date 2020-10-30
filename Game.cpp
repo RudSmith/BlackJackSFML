@@ -68,7 +68,7 @@ void Game::initButtons()
 void Game::initPlayers()
 {
 	const sf::Vector2f croupier_init_card_pos{ 100.f, 0.f };
-	const sf::Vector2f player_init_card_pos{ 0.f, 300.f };
+	const sf::Vector2f player_init_card_pos{ 0.f, 440.f };
 
 	this->m_croupier = new Player(croupier_init_card_pos, "Croupier");
 	this->m_user = new Player(player_init_card_pos);
@@ -76,8 +76,8 @@ void Game::initPlayers()
 	this->m_croupier->addCard(this->m_deck.pop_top_card());
 	this->m_croupier->addCard(this->m_deck.pop_top_card());
 
-	this->m_user->addCard(this->m_deck.pop_top_card());
-	this->m_user->addCard(this->m_deck.pop_top_card());
+	hitPressHandle();
+	hitPressHandle();
 }
 
 // Update SFML standart events
@@ -163,6 +163,12 @@ void Game::renderCards(const std::vector<size_t>& hand)
 
 void Game::hitPressHandle()
 {
+	if (this->m_user->Hand().empty())
+		this->m_deck.at(this->m_deck.look_at_top_card()).setPosition(this->m_user->card_init_pos());
+	else
+		this->m_deck.at(this->m_deck.look_at_top_card()).setPosition(this->m_deck.at(this->m_user->Hand().at(this->m_user->Hand().size() - 1)).sprite().getPosition() + this->m_card_print_offset);
+
+	this->m_user->addCard(this->m_deck.pop_top_card());
 }
 
 void Game::standPressHandle()
