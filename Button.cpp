@@ -25,10 +25,6 @@ Button::Button(float x, float y, float width, float height, sf::Font* font, std:
 	this->m_state = ButtonState::BTN_IDLE;
 }
 
-Button::~Button()
-{
-}
-
 void Button::update(const sf::Vector2f mousePos)
 {
 	this->m_state = ButtonState::BTN_IDLE;

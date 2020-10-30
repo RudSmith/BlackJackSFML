@@ -16,7 +16,6 @@ public:
 	Button(float x, float y, float width, float height,
 		sf::Font *font, std::string text = 0, sf::Color idleColor = sf::Color::White,
 		sf::Color hoverColor = sf::Color::White, sf::Color activeColor = sf::Color::White);
-	~Button();
 
 	void update(const sf::Vector2f mousePos);
 	void render(sf::RenderTarget* target);
