@@ -38,6 +38,8 @@ private:
 	void standPressHandle();
 	void doublePressHandle();
 	void exitPressHandle();
+	// Croupier special case
+	void croupierGetsCard();
 
 	// -------------------------- MAIN OBJECT SECTION -------------------------- //
 	// Window object 

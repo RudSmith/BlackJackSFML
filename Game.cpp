@@ -73,8 +73,8 @@ void Game::initPlayers()
 	this->m_croupier = new Player(croupier_init_card_pos, "Croupier");
 	this->m_user = new Player(player_init_card_pos);
 
-	this->m_croupier->addCard(this->m_deck.pop_top_card());
-	this->m_croupier->addCard(this->m_deck.pop_top_card());
+	croupierGetsCard();
+	croupierGetsCard();
 
 	hitPressHandle();
 	hitPressHandle();
@@ -181,5 +181,15 @@ void Game::doublePressHandle()
 
 void Game::exitPressHandle()
 {
+}
+
+void Game::croupierGetsCard()
+{
+	if (this->m_croupier->Hand().empty())
+		this->m_deck.at(this->m_deck.look_at_top_card()).setPosition(this->m_croupier->card_init_pos());
+	else
+		this->m_deck.at(this->m_deck.look_at_top_card()).setPosition(this->m_deck.at(this->m_croupier->Hand().at(this->m_croupier->Hand().size() - 1)).sprite().getPosition() + this->m_card_print_offset);
+
+	this->m_croupier->addCard(this->m_deck.pop_top_card());
 }
 
