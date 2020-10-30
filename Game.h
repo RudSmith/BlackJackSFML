@@ -78,10 +78,12 @@ private:
 	// -------------------------- TEXTURE SECTION -------------------------- //
 	// Background image txtr
 	sf::Texture *m_backgroundTexture;
+	sf::Texture m_cardFaceUpTexture;
 	
 	// -------------------------- SPRITE SECTION -------------------------- //
 	// Background image sprite
 	sf::Sprite m_backgroundSprite;
+	sf::Sprite m_cardFaceUpSprite;
 
 };
 

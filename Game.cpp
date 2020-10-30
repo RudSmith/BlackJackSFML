@@ -61,17 +61,22 @@ void Game::initButtons()
 	this->m_hit = new Button(700, 550, 70, 50, this->m_font, "Hit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
 	this->m_stand = new Button(800, 550, 70, 50, this->m_font, "Stand", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
 	this->m_double = new Button(900, 550, 70, 50, this->m_font, "Double", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
-	this->m_escape_to_menu = new Button(0, 0, 70, 50, this->m_font, "Exit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
+	this->m_escape_to_menu = new Button(1030, 0, 70, 50, this->m_font, "Exit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
 }
 
 // Creating two players
 void Game::initPlayers()
 {
-	const sf::Vector2f croupier_init_card_pos{ 100.f, 0.f };
+	const sf::Vector2f croupier_init_card_pos{ 0.f, 0.f };
 	const sf::Vector2f player_init_card_pos{ 0.f, 440.f };
 
 	this->m_croupier = new Player(croupier_init_card_pos, "Croupier");
 	this->m_user = new Player(player_init_card_pos);
+
+	this->m_cardFaceUpTexture.loadFromFile("Images/back.png");
+	this->m_cardFaceUpSprite.setTexture(this->m_cardFaceUpTexture);
+	this->m_cardFaceUpSprite.setScale(0.25f, 0.2f);
+	this->m_cardFaceUpSprite.setPosition(this->m_croupier->card_init_pos());
 
 	this->m_user->setMove(true);
 
@@ -160,9 +165,17 @@ void Game::renderButtons()
 
 void Game::renderCards(const std::vector<size_t>& hand)
 {
-	for (auto card : hand)
+	if (hand == this->m_croupier->Hand() && m_user->isMoving())
 	{
-		this->m_window->draw(this->m_deck.at(card).sprite());
+		this->m_window->draw(this->m_cardFaceUpSprite);
+
+		for (size_t card_iter{ 1 }; card_iter < hand.size(); ++card_iter)
+			this->m_window->draw(this->m_deck.at(hand.at(card_iter)).sprite());
+	}
+	else
+	{
+		for (auto card : hand)
+			this->m_window->draw(this->m_deck.at(card).sprite());
 	}
 }
 
