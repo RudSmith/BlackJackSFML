@@ -91,23 +91,19 @@ void Game::updateEvents()
 		{
 			if (this->m_hit->isPressed())
 			{
-				this->m_deck.at(this->m_deck.look_at_top_card()).setPosition(sf::Vector2f(228, 228));
-				this->m_user->addCard(this->m_deck.pop_top_card());
-				// !!!!!!!!!!!!! Add points to player
+				hitPressHandle();
 			}
 			else if (this->m_stand->isPressed())
 			{
-				this->m_user->setMove(false);
+				standPressHandle();
 			}
 			else if (this->m_double->isPressed())
 			{
-				this->m_user->addCard(this->m_deck.pop_top_card());
-				this->m_user->makeBet(this->m_user->Bet() * 2);
-				// !!!!!!!!!!!!! Add points to player
+				doublePressHandle();
 			}
 			else if (this->m_escape_to_menu->isPressed())
 			{
-				// DO STHNG
+				exitPressHandle();
 			}
 		}
 	}
