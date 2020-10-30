@@ -33,6 +33,12 @@ private:
 	void renderButtons();
 	void renderCards(const std::vector<size_t> &hand);
 
+	// ----------- Button click handlers ----------- //
+	void hitPressHandle();
+	void standPressHandle();
+	void doublePressHandle();
+	void exitPressHandle();
+
 	// -------------------------- MAIN OBJECT SECTION -------------------------- //
 	// Window object 
 	sf::RenderWindow *m_window;

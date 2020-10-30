@@ -165,3 +165,19 @@ void Game::renderCards(const std::vector<size_t>& hand)
 	}
 }
 
+void Game::hitPressHandle()
+{
+}
+
+void Game::standPressHandle()
+{
+}
+
+void Game::doublePressHandle()
+{
+}
+
+void Game::exitPressHandle()
+{
+}
+
