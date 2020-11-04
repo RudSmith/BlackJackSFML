@@ -6,7 +6,8 @@ Player::Player(const sf::Vector2f card_init_pos, const name_t& name)
 	  m_name{ name },
 	  m_card_init_position{ card_init_pos },
 	  m_isWinner{ false },
-	  m_isMoving{ false }
+	  m_isMoving{ false },
+	  m_aces_count{}
 { }
 
 const Player::points_t& Player::Points()
@@ -44,6 +45,11 @@ const sf::Vector2f Player::card_init_pos()
 	return this->m_card_init_position;
 }
 
+const size_t& Player::aces_count()
+{
+	return m_aces_count;
+}
+
 void Player::makeBet(const money_t& bet)
 {
 	this->m_bet += bet;
@@ -62,4 +68,9 @@ void Player::setMove(const bool& isMoving)
 void Player::setPoints(const points_t& points)
 {
 	this->m_points = points;
+}
+
+void Player::setAcesCount(const size_t& aces_count)
+{
+	m_aces_count = aces_count;
 }

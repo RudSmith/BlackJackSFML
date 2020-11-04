@@ -1,5 +1,4 @@
 #include "Game.h"
-#include <iostream>
 
 Game::Game()
 {
@@ -182,15 +181,16 @@ void Game::renderCards(const std::vector<size_t>& hand)
 
 void Game::hitPressHandle()
 {
+
 	if (this->m_user->Hand().empty())
 		this->m_deck.at(this->m_deck.look_at_top_card()).setPosition(this->m_user->card_init_pos());
 	else
 		this->m_deck.at(this->m_deck.look_at_top_card()).setPosition(this->m_deck.at(this->m_user->Hand().at(this->m_user->Hand().size() - 1)).sprite().getPosition() + this->m_card_print_offset);
 
-	std::cout << this->m_deck.at(this->m_deck.look_at_top_card()).value() << '\n';
-
+	this->m_user->setPoints(m_user->Points() + m_deck.at(m_deck.look_at_top_card()).points());
 	this->m_user->addCard(this->m_deck.pop_top_card());
-	
+	this->analyzePlayerPoints(*m_user);
+
 }
 
 void Game::standPressHandle()
@@ -214,6 +214,24 @@ void Game::croupierGetsCard()
 	else
 		this->m_deck.at(this->m_deck.look_at_top_card()).setPosition(this->m_deck.at(this->m_croupier->Hand().at(this->m_croupier->Hand().size() - 1)).sprite().getPosition() + this->m_card_print_offset);
 
+	this->m_croupier->setPoints(m_croupier->Points() + m_deck.at(m_deck.look_at_top_card()).points());
 	this->m_croupier->addCard(this->m_deck.pop_top_card());
+	this->analyzePlayerPoints(*m_croupier);
+}
+
+void Game::analyzePlayerPoints(Player& player)
+{
+	if (this->m_deck.at(player.Hand().at(player.Hand().size() - 1)).points() == 11)
+		player.setAcesCount(player.aces_count() + 1);
+
+	if (player.Points() > 21)
+	{
+		if (player.aces_count() > 0)
+			for (size_t iter{}; iter < player.aces_count(); ++iter)
+			{
+				player.setPoints(player.Points() - 10);
+				player.setAcesCount(player.aces_count() - 1);
+			}
+	}		
 }
 

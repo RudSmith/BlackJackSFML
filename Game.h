@@ -41,6 +41,9 @@ private:
 	// Croupier special case
 	void croupierGetsCard();
 
+	// Check player points condition when taking a card
+	void analyzePlayerPoints(Player &player);
+
 	// -------------------------- MAIN OBJECT SECTION -------------------------- //
 	// Window object 
 	sf::RenderWindow *m_window;
