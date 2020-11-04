@@ -29,6 +29,7 @@ public:
 	void makeBet(const money_t &bet);
 	void addCard(const size_t &card_index_in_deck);
 	void setMove(const bool &isMoving);
+	void setPoints(const points_t &points);
 	
 private:
 	points_t m_points;

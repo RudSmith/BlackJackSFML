@@ -1,4 +1,5 @@
 #include "Game.h"
+#include <iostream>
 
 Game::Game()
 {
@@ -186,7 +187,10 @@ void Game::hitPressHandle()
 	else
 		this->m_deck.at(this->m_deck.look_at_top_card()).setPosition(this->m_deck.at(this->m_user->Hand().at(this->m_user->Hand().size() - 1)).sprite().getPosition() + this->m_card_print_offset);
 
+	std::cout << this->m_deck.at(this->m_deck.look_at_top_card()).value() << '\n';
+
 	this->m_user->addCard(this->m_deck.pop_top_card());
+	
 }
 
 void Game::standPressHandle()

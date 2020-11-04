@@ -58,3 +58,8 @@ void Player::setMove(const bool& isMoving)
 {
 	this->m_isMoving = isMoving;
 }
+
+void Player::setPoints(const points_t& points)
+{
+	this->m_points = points;
+}
