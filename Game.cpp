@@ -194,7 +194,7 @@ void Game::standPressHandle()
 
 void Game::exitPressHandle()
 {
-	delete this;
+	m_window->close();
 }
 
 void Game::croupierGetsCard()
