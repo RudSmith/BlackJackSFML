@@ -155,6 +155,8 @@ void Game::render()
 	this->renderCards(this->m_croupier->Hand());
 	this->renderCards(this->m_user->Hand());
 
+	this->m_window->draw(m_winnerInfoText);
+
 	this->m_window->display();
 }
 
@@ -229,6 +231,8 @@ void Game::croupierMakesMove()
 {
 	while (m_croupier->Points() < 17)
 		croupierGetsCard();
+
+	detectTheWinner();
 }
 
 void Game::analyzePlayerPoints(Player& player)
@@ -247,5 +251,24 @@ void Game::analyzePlayerPoints(Player& player)
 		else
 			standPressHandle();
 	}		
+}
+
+void Game::detectTheWinner()
+{
+	m_winnerInfoText.setFont(*m_font);
+	m_winnerInfoText.setPosition(550.f, 325.f);
+
+	if ((m_user->Points() <= 21 && m_user->Points() > m_croupier->Points()) || (m_croupier->Points() > 21 && m_user->Points() <= 21))
+	{
+		m_winnerInfoText.setString("You win!");
+	}
+	else if ((m_croupier->Points() <= 21 && m_croupier->Points() > m_user->Points()) || (m_user->Points() > 21 && m_croupier->Points() <= 21))
+	{
+		m_winnerInfoText.setString("You lose.");
+	}
+	else
+	{
+		m_winnerInfoText.setString("Round draw.");
+	}
 }
 

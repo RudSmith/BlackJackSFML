@@ -46,6 +46,8 @@ private:
 	// Check player points condition when taking a card
 	void analyzePlayerPoints(Player &player);
 
+	void detectTheWinner();
+
 	// -------------------------- MAIN OBJECT SECTION -------------------------- //
 	// Window object 
 	sf::RenderWindow *m_window;
@@ -83,6 +85,8 @@ private:
 	// Background image txtr
 	sf::Texture *m_backgroundTexture;
 	sf::Texture m_cardFaceUpTexture;
+
+	sf::Text m_winnerInfoText;
 	
 	// -------------------------- SPRITE SECTION -------------------------- //
 	// Background image sprite
