@@ -2,7 +2,6 @@
 
 Player::Player(const sf::Vector2f card_init_pos, const name_t& name)
 	: m_points{},
-	  m_bet{},
 	  m_name{ name },
 	  m_card_init_position{ card_init_pos },
 	  m_isWinner{ false },
@@ -13,11 +12,6 @@ Player::Player(const sf::Vector2f card_init_pos, const name_t& name)
 const Player::points_t& Player::Points()
 {
 	return this->m_points;
-}
-
-const Player::money_t& Player::Bet()
-{
-	return this->m_bet;
 }
 
 const Player::hand_t& Player::Hand()
@@ -48,11 +42,6 @@ const sf::Vector2f Player::card_init_pos()
 const size_t& Player::aces_count()
 {
 	return m_aces_count;
-}
-
-void Player::makeBet(const money_t& bet)
-{
-	this->m_bet += bet;
 }
 
 void Player::addCard(const size_t& card_index_in_deck)

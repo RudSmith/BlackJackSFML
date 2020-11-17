@@ -60,7 +60,6 @@ void Game::initButtons()
 	// Set buttons
 	this->m_hit = new Button(700, 550, 70, 50, this->m_font, "Hit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
 	this->m_stand = new Button(800, 550, 70, 50, this->m_font, "Stand", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
-	this->m_double = new Button(900, 550, 70, 50, this->m_font, "Double", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
 	this->m_escape_to_menu = new Button(1030, 0, 70, 50, this->m_font, "Exit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
 }
 
@@ -104,10 +103,6 @@ void Game::updateEvents()
 			{
 				standPressHandle();
 			}
-			else if (this->m_double->isPressed())
-			{
-				doublePressHandle();
-			}
 			else if (this->m_escape_to_menu->isPressed())
 			{
 				exitPressHandle();
@@ -136,7 +131,6 @@ void Game::updateButtons()
 	// Upd buttons state
 	this->m_hit->update(m_worldPos);
 	this->m_stand->update(m_worldPos);
-	this->m_double->update(m_worldPos);
 	this->m_escape_to_menu->update(m_worldPos);
 }
 
@@ -159,7 +153,6 @@ void Game::renderButtons()
 {
 	this->m_hit->render(this->m_window);
 	this->m_stand->render(this->m_window);
-	this->m_double->render(this->m_window);
 	this->m_escape_to_menu->render(this->m_window);
 }
 
@@ -199,12 +192,9 @@ void Game::standPressHandle()
 	this->m_croupier->setMove(true);
 }
 
-void Game::doublePressHandle()
-{
-}
-
 void Game::exitPressHandle()
 {
+	delete this;
 }
 
 void Game::croupierGetsCard()
