@@ -20,7 +20,6 @@ public:
 	const points_t &Points();
 	const hand_t &Hand();
 	const name_t &Name();
-	const bool &isWinner();
 	const bool &isMoving();
 	const sf::Vector2f card_init_pos();
 	const size_t &aces_count();
@@ -40,7 +39,6 @@ private:
 
 	sf::Vector2f m_card_init_position;
 
-	bool m_isWinner;
 	bool m_isMoving;
 
 };

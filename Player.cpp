@@ -4,7 +4,6 @@ Player::Player(const sf::Vector2f card_init_pos, const name_t& name)
 	: m_points{},
 	  m_name{ name },
 	  m_card_init_position{ card_init_pos },
-	  m_isWinner{ false },
 	  m_isMoving{ false },
 	  m_aces_count{}
 { }
@@ -22,11 +21,6 @@ const Player::hand_t& Player::Hand()
 const Player::name_t& Player::Name()
 {
 	return this->m_name;
-}
-
-const bool& Player::isWinner()
-{
-	return this->m_isWinner;
 }
 
 const bool& Player::isMoving()
