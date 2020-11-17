@@ -222,6 +222,8 @@ void Game::analyzePlayerPoints(Player& player)
 				player.setPoints(player.Points() - 10);
 				player.setAcesCount(player.aces_count() - 1);
 			}
+		else
+			standPressHandle();
 	}		
 }
 
