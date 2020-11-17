@@ -37,9 +37,11 @@ private:
 	void hitPressHandle();
 	void standPressHandle();
 	void exitPressHandle();
+	void retryPressHandle();
 
 	// Croupier special case
 	void croupierGetsCard();
+	void croupierMakesMove();
 
 	// Check player points condition when taking a card
 	void analyzePlayerPoints(Player &player);
@@ -67,6 +69,7 @@ private:
 	Button* m_stand;
 	// Button to escape to main menu
 	Button* m_escape_to_menu;
+	Button* m_retry;
 
 	Deck m_deck;
 

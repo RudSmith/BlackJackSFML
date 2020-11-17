@@ -21,6 +21,7 @@ Game::~Game()
 	delete this->m_hit;
 	delete this->m_stand;
 	delete this->m_escape_to_menu;
+	delete m_retry;
 
 	// delete players
 	delete this->m_croupier;
@@ -60,6 +61,7 @@ void Game::initButtons()
 	this->m_hit = new Button(800, 550, 70, 50, this->m_font, "Hit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
 	this->m_stand = new Button(900, 550, 70, 50, this->m_font, "Stand", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
 	this->m_escape_to_menu = new Button(1030, 0, 70, 50, this->m_font, "Exit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
+	m_retry = new Button(950, 0, 70, 50, this->m_font, "Retry", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
 }
 
 // Creating two players
@@ -106,6 +108,10 @@ void Game::updateEvents()
 			{
 				exitPressHandle();
 			}
+			else if (m_retry->isPressed())
+			{
+				retryPressHandle();
+			}
 		}
 	}
 }
@@ -131,6 +137,7 @@ void Game::updateButtons()
 	this->m_hit->update(m_worldPos);
 	this->m_stand->update(m_worldPos);
 	this->m_escape_to_menu->update(m_worldPos);
+	m_retry->update(m_worldPos);
 }
 
 // Show background, buttons and cards
@@ -143,6 +150,7 @@ void Game::render()
 		this->renderGameplayButtons();
 
 	this->m_escape_to_menu->render(this->m_window);
+	m_retry->render(this->m_window);
 
 	this->renderCards(this->m_croupier->Hand());
 	this->renderCards(this->m_user->Hand());
@@ -190,11 +198,19 @@ void Game::standPressHandle()
 {
 	this->m_user->setMove(false);
 	this->m_croupier->setMove(true);
+	croupierMakesMove();
 }
 
 void Game::exitPressHandle()
 {
 	m_window->close();
+}
+
+void Game::retryPressHandle()
+{
+	m_window->close();
+	Game newGame;
+	newGame.run();
 }
 
 void Game::croupierGetsCard()
@@ -207,6 +223,12 @@ void Game::croupierGetsCard()
 	this->m_croupier->setPoints(m_croupier->Points() + m_deck.at(m_deck.look_at_top_card()).points());
 	this->m_croupier->addCard(this->m_deck.pop_top_card());
 	this->analyzePlayerPoints(*m_croupier);
+}
+
+void Game::croupierMakesMove()
+{
+	while (m_croupier->Points() < 17)
+		croupierGetsCard();
 }
 
 void Game::analyzePlayerPoints(Player& player)
