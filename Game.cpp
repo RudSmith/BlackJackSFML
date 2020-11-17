@@ -260,15 +260,18 @@ void Game::detectTheWinner()
 
 	if ((m_user->Points() <= 21 && m_user->Points() > m_croupier->Points()) || (m_croupier->Points() > 21 && m_user->Points() <= 21))
 	{
-		m_winnerInfoText.setString("You win!");
+		m_winnerInfoText.setString("You win!\n");
 	}
 	else if ((m_croupier->Points() <= 21 && m_croupier->Points() > m_user->Points()) || (m_user->Points() > 21 && m_croupier->Points() <= 21))
 	{
-		m_winnerInfoText.setString("You lose.");
+		m_winnerInfoText.setString("You lose.\n");
 	}
 	else
 	{
-		m_winnerInfoText.setString("Round draw.");
+		m_winnerInfoText.setString("Round draw.\n");
 	}
+
+	m_winnerInfoText.setString(m_winnerInfoText.getString() + "You have " + std::to_string(m_user->Points()) + " points.\n");
+	m_winnerInfoText.setString(m_winnerInfoText.getString() + "Croupier has " + std::to_string(m_croupier->Points()) + " points.\n");
 }
 
