@@ -30,14 +30,14 @@ private:
 
 	// ----------- Renderers ----------- //
 	void render();
-	void renderButtons();
+	void renderGameplayButtons();
 	void renderCards(const std::vector<size_t> &hand);
 
 	// ----------- Button click handlers ----------- //
 	void hitPressHandle();
 	void standPressHandle();
-	void doublePressHandle();
 	void exitPressHandle();
+
 	// Croupier special case
 	void croupierGetsCard();
 
@@ -65,8 +65,6 @@ private:
 	Button* m_hit;
 	// Button to start croupier`s turn
 	Button* m_stand;
-	// Button to double your bet and take another card
-	Button* m_double;
 	// Button to escape to main menu
 	Button* m_escape_to_menu;
 

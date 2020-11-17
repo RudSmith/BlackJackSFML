@@ -20,7 +20,6 @@ Game::~Game()
 	// delete buttons
 	delete this->m_hit;
 	delete this->m_stand;
-	delete this->m_double;
 	delete this->m_escape_to_menu;
 
 	// delete players
@@ -58,8 +57,8 @@ void Game::initWindow()
 void Game::initButtons()
 {
 	// Set buttons
-	this->m_hit = new Button(700, 550, 70, 50, this->m_font, "Hit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
-	this->m_stand = new Button(800, 550, 70, 50, this->m_font, "Stand", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
+	this->m_hit = new Button(800, 550, 70, 50, this->m_font, "Hit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
+	this->m_stand = new Button(900, 550, 70, 50, this->m_font, "Stand", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
 	this->m_escape_to_menu = new Button(1030, 0, 70, 50, this->m_font, "Exit", sf::Color(200, 200, 200), sf::Color(150, 150, 150), sf::Color(125, 125, 125));
 }
 
@@ -141,7 +140,9 @@ void Game::render()
 	this->m_window->draw(this->m_backgroundSprite);
 
 	if(this->m_user->isMoving())
-		this->renderButtons();
+		this->renderGameplayButtons();
+
+	this->m_escape_to_menu->render(this->m_window);
 
 	this->renderCards(this->m_croupier->Hand());
 	this->renderCards(this->m_user->Hand());
@@ -149,11 +150,10 @@ void Game::render()
 	this->m_window->display();
 }
 
-void Game::renderButtons()
+void Game::renderGameplayButtons()
 {
 	this->m_hit->render(this->m_window);
 	this->m_stand->render(this->m_window);
-	this->m_escape_to_menu->render(this->m_window);
 }
 
 void Game::renderCards(const std::vector<size_t>& hand)
