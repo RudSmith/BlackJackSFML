@@ -4,30 +4,32 @@
 Card::Card(value_t value, const std::string& textureFileName)
 	: m_value { value }
 {
-	this->m_texture.loadFromFile(textureFileName);
-	this->m_sprite.setTexture(this->m_texture);
+	// Load texture, set sprite and set scale
+	m_texture.loadFromFile(textureFileName);
+	m_sprite.setTexture(m_texture);
 
-	this->m_sprite.setScale(0.25f, 0.2f);
+	m_sprite.setScale(0.25f, 0.2f);
 }
 
 const sf::Sprite &Card::sprite() const
 {
-	return this->m_sprite;
+	return m_sprite;
 }
 
 const sf::Texture &Card::texture() const 
 {
-	return this->m_texture;
+	return m_texture;
 }
 
 const Card::value_t &Card::value() const
 {
-	return this->m_value;
+	return m_value;
 }
 
 const Card::points_t& Card::points() const
 {
-	switch (this->m_value)
+	// Using given card value, determine the number of points the card gives to player
+	switch (m_value)
 	{
 	case 0:
 		return 2;
@@ -68,21 +70,25 @@ const Card::points_t& Card::points() const
 
 void Card::loadTexture(const std::string& fileName)
 {
-	this->m_texture.loadFromFile(fileName);
+	// Load texture from file
+	m_texture.loadFromFile(fileName);
 }
 
 void Card::setSpriteFromTexture()
 {
-	this->m_sprite.setTexture(this->m_texture);
+	// Set sprite`s image
+	m_sprite.setTexture(m_texture);
 }
 
 void Card::setValue(const value_t& value)
 {
-	this->m_value = value;
+	// Set card`s value
+	m_value = value;
 }
 
 void Card::setPosition(const sf::Vector2f& card_pos)
 {
-	this->m_sprite.setPosition(card_pos);
+	// Set card`s position
+	m_sprite.setPosition(card_pos);
 }
 
