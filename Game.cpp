@@ -39,6 +39,11 @@ void Game::run()
 	}
 }
 
+bool Game::isRunning()
+{
+	return m_window->isOpen();
+}
+
 // Setting properties of main window and its background
 void Game::initWindow()
 {

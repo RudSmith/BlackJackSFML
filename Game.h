@@ -14,7 +14,7 @@ public:
 	
 	// Start game
 	void run();
-	
+	bool isRunning();
 
 private:
 	// ----------- Initializers ----------- //

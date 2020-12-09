@@ -1,7 +1,7 @@
-#include "Game.h"
+#include "MainMenu.h"
 
 int main()
 {
-	Game blackJack;
-	blackJack.run();
+	MainMenu gamemenu;
+	gamemenu.run();
 }
