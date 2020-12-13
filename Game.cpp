@@ -84,7 +84,6 @@ void Game::initPlayers()
 	// Load a face up card texture and set its position to croupier first card`s position
 	m_cardFaceUpTexture.loadFromFile("Images/back.png");
 	m_cardFaceUpSprite.setTexture(m_cardFaceUpTexture);
-	m_cardFaceUpSprite.setScale(0.25f, 0.2f);
 	m_cardFaceUpSprite.setPosition(m_croupier->card_init_pos());
 
 	// Pass the move to player
