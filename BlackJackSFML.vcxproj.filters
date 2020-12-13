@@ -1,60 +1,239 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Исходные файлы">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Card.cpp" />
+    <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Player.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="Card.h" />
+    <ClInclude Include="Deck.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Player.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Images">
+      <UniqueIdentifier>{b284117e-326c-45c8-9d44-1886a3f7cbe4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Fonts">
+      <UniqueIdentifier>{0c702783-6f9a-4ddd-bda9-f1f9a3e964d3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы ресурсов">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="SFML">
+      <UniqueIdentifier>{a939632d-0289-4e5b-99bd-62cd451daeaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SFML\bin">
+      <UniqueIdentifier>{f1527d42-a8d8-4e60-8c53-acc5de8890ef}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Card.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Deck.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="MainMenu.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
+    <Image Include="Images\2C.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\2D.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\2H.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\2S.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\3C.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\3D.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\3H.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\3S.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\4C.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\4D.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\4H.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\4S.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\5C.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\5D.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\5H.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\5S.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\6C.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\6D.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\6H.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\6S.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\7C.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\7D.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\7H.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\7S.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\8C.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\8D.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\8H.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\8S.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\9C.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\9D.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\9H.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\9S.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\10C.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\10D.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\10H.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\10S.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\AC.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\AD.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\AH.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\AS.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\back.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\Background.jpg">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\blue_back.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\gray_back.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\green_back.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\JC.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\JD.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\JH.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\JS.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\KC.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\KD.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\KH.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\KS.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\purple_back.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\QC.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\QD.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\QH.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\QS.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\red_back.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\yellow_back.png">
+      <Filter>Images</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Button.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Card.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Deck.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="MainMenu.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
+    <Font Include="Fonts\arial.ttf">
+      <Filter>Fonts</Filter>
+    </Font>
+    <Font Include="Fonts\Dash-Horizon-Demo.otf">
+      <Filter>Fonts</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sfml\bin\sfml-graphics-2.dll">
+      <Filter>SFML\bin</Filter>
+    </None>
+    <None Include="sfml\bin\sfml-system-2.dll">
+      <Filter>SFML\bin</Filter>
+    </None>
+    <None Include="sfml\bin\sfml-window-2.dll">
+      <Filter>SFML\bin</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="card_textures.txt" />
+    <Text Include="readme.txt" />
   </ItemGroup>
 </Project>
