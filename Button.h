@@ -23,6 +23,8 @@ public:
 	void update(const sf::Vector2f mousePos);
 	// Display the button
 	void render(sf::RenderTarget* target);
+	// Disable the button
+	void disable();
 
 	// Check if button is currently pressed
 	const bool isPressed() const;

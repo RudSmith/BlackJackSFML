@@ -227,6 +227,8 @@ void Game::standPressHandle()
 	// Pass the move to the croupier
 	m_player->setMove(false);
 	m_croupier->setMove(true);
+	m_hit->disable();
+	m_stand->disable();
 	croupierMakesMove();
 }
 

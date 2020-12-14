@@ -65,6 +65,11 @@ void Button::render(sf::RenderTarget* target)
 	target->draw(m_text);
 }
 
+void Button::disable()
+{
+	m_shape.setSize(sf::Vector2f(0.f, 0.f));
+}
+
 const bool Button::isPressed() const
 {
 	if (m_state == ButtonState::BTN_ACTIVE)
