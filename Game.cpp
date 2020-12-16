@@ -322,7 +322,7 @@ void Game::detectTheWinner()
 
 	// Write the result of the game into txt file
 	std::ofstream putPlayersPointsIntoFile;
-	putPlayersPointsIntoFile.open("results.txt");
+	putPlayersPointsIntoFile.open("results.txt", std::ios::app);
 
 	putPlayersPointsIntoFile << "Player: " << m_player->Points() << "; Croupier: " << m_croupier->Points() << ". \n";
 
