@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "fstream"
 
 #pragma comment(lib, "sfml-system.lib")
 #pragma comment(lib, "sfml-graphics.lib")
@@ -318,5 +319,13 @@ void Game::detectTheWinner()
 	// Output info about player`s points
 	m_winnerInfoText.setString(m_winnerInfoText.getString() + "You have " + std::to_string(m_player->Points()) + " points.\n");
 	m_winnerInfoText.setString(m_winnerInfoText.getString() + "Croupier has " + std::to_string(m_croupier->Points()) + " points.\n");
+
+	// Write the result of the game into txt file
+	std::ofstream putPlayersPointsIntoFile;
+	putPlayersPointsIntoFile.open("results.txt");
+
+	putPlayersPointsIntoFile << "Player: " << m_player->Points() << "; Croupier: " << m_croupier->Points() << ". \n";
+
+	putPlayersPointsIntoFile.close();
 }
 
